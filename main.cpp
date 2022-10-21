@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <string.h>
 #include "oracle.h"
 #include "table.h"
 #include "random.h"
@@ -274,12 +275,12 @@ int main(int argc, char *argv[]) {
 		}else if(std::string(argv[i]) == "--rat2"){
 			rat2 = true;
 		}else if(std::string(argv[i]) == "--ce" && i+1 < argc){
-			std::stringstream ces(std::string(argv[i+1]));
+			char* ce = strtok(argv[i+1],",");
 			i++;
 			counter_examples.clear();
-			std::string ce;
-			while (getline(ces, ce, ',')){
-				counter_examples.push_back(ce);
+			while (ce) {
+				counter_examples.push_back(std::string(ce));
+				ce = strtok(NULL, ",");
 			}
 		}else{
 			std::cerr << "error: invalid or malformed argument: " << argv[i] << std::endl;
