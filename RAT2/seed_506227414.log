@@ -1,0 +1,305 @@
+Random target AFA:
+digraph finite_state_machine {
+	rankdir=LR;
+	node [shape = circle];
+	s0 [shape = point, style = invis, start="true" ];
+	s1 [shape = point, style = invis, start="true" ];
+	q0 [label = "q0"];
+	q1 [label = "q1", shape = doublecircle, final="true" ];
+	q2 [label = "q2"];
+	q3 [label = "q3", shape = doublecircle, final="true" ];
+	q4 [label = "q4", shape = doublecircle, final="true" ];
+	q5 [label = "q5"];
+	m0 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m1 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m2 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m3 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m4 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	s0 -> q2
+	s1 -> q2
+	q2 -> q1 [label = "c"];
+	q1 -> q0 [label = "c"];
+	q1 -> m3 [label = "b"];
+	q3 -> q4 [label = "b"];
+	q1 -> m2 [label = "a"];
+	q1 -> q3 [label = "a"];
+	q4 -> q3 [label = "c"];
+	q0 -> q1 [label = "a, b"];
+	q0 -> q0 [label = "a"];
+	q3 -> q1 [label = "c"];
+	q2 -> q4 [label = "b"];
+	q5 -> q2 [label = "c"];
+	q2 -> q5 [label = "a, b, c"];
+	q0 -> q2 [label = "c"];
+	q4 -> m1 [label = "a"];
+	q4 -> m3 [label = "b"];
+	q0 -> m0 [label = "b"];
+	q2 -> q0 [label = "a"];
+	q5 -> m4 [label = "a, b"];
+	q3 -> q0 [label = "a"];
+	q1 -> q1 [label = "b"];
+	q0 -> q3 [label = "c"];
+	q5 -> q5 [label = "a"];
+	q3 -> q2 [label = "a"];
+	q5 -> q3 [label = "b, c"];
+	q4 -> q0 [label = "a, b"];
+	m0 -> q2;
+	m0 -> q3;
+	m1 -> q1;
+	m1 -> q5;
+	m2 -> q3;
+	m2 -> q5;
+	m3 -> q3;
+	m3 -> q4;
+	m4 -> q0;
+	m4 -> q5;
+}
+
+L* output after 4 EQ and 385 MQ:
+digraph finite_state_machine {
+	rankdir=LR;
+	node [shape = circle];
+	s0 [shape = point, style = invis, start="true" ];
+	q0 [label = "q0", shape = doublecircle, final="true" ];
+	q1 [label = "q1", shape = doublecircle, final="true" ];
+	q2 [label = "q2"];
+	q3 [label = "q3", shape = doublecircle, final="true" ];
+	q4 [label = "q4", shape = doublecircle, final="true" ];
+	q5 [label = "q5", shape = doublecircle, final="true" ];
+	q6 [label = "q6"];
+	q7 [label = "q7", shape = doublecircle, final="true" ];
+	q8 [label = "q8"];
+	s0 -> q8
+	q1 -> q4 [label = "c"];
+	q5 -> q1 [label = "a"];
+	q3 -> q5 [label = "c"];
+	q7 -> q4 [label = "b"];
+	q3 -> q2 [label = "a"];
+	q1 -> q0 [label = "b"];
+	q8 -> q5 [label = "c"];
+	q0 -> q2 [label = "a"];
+	q0 -> q4 [label = "b, c"];
+	q8 -> q7 [label = "b"];
+	q1 -> q2 [label = "a"];
+	q8 -> q6 [label = "a"];
+	q4 -> q4 [label = "a, b, c"];
+	q2 -> q4 [label = "a, b, c"];
+	q3 -> q7 [label = "b"];
+	q6 -> q3 [label = "c"];
+	q6 -> q4 [label = "a, b"];
+	q7 -> q6 [label = "a"];
+	q5 -> q4 [label = "b, c"];
+	q7 -> q3 [label = "c"];
+}
+DFA size: 9 states
+
+NL* output after 6 EQ and 300 MQ:
+digraph finite_state_machine {
+	rankdir=LR;
+	node [shape = circle];
+	s0 [shape = point, style = invis, start="true" ];
+	q0 [label = "q0", shape = doublecircle, final="true" ];
+	q1 [label = "q1", shape = doublecircle, final="true" ];
+	q2 [label = "q2", shape = doublecircle, final="true" ];
+	q3 [label = "q3"];
+	q4 [label = "q4", shape = doublecircle, final="true" ];
+	q5 [label = "q5"];
+	s0 -> q5
+	q5 -> q4 [label = "b"];
+	q0 -> q4 [label = "b, c"];
+	q4 -> q4 [label = "b"];
+	q2 -> q5 [label = "a, b, c"];
+	q5 -> q2 [label = "c"];
+	q3 -> q1 [label = "a, b, c"];
+	q2 -> q3 [label = "b, c"];
+	q2 -> q0 [label = "a, b, c"];
+	q0 -> q2 [label = "c"];
+	q2 -> q2 [label = "b, c"];
+	q1 -> q2 [label = "c"];
+	q2 -> q1 [label = "a, b, c"];
+	q1 -> q4 [label = "b"];
+	q0 -> q3 [label = "a, c"];
+	q3 -> q0 [label = "a, b"];
+	q0 -> q1 [label = "b, c"];
+	q0 -> q0 [label = "b, c"];
+	q4 -> q5 [label = "b, c"];
+	q2 -> q4 [label = "b, c"];
+	q4 -> q1 [label = "b, c"];
+	q0 -> q5 [label = "a, b, c"];
+	q4 -> q3 [label = "a, b"];
+	q1 -> q3 [label = "a"];
+	q1 -> q5 [label = "a"];
+	q5 -> q3 [label = "a"];
+	q4 -> q2 [label = "b"];
+	q4 -> q0 [label = "b"];
+	q3 -> q3 [label = "a, b"];
+	q3 -> q4 [label = "a, b"];
+	q3 -> q2 [label = "a, b"];
+	q3 -> q5 [label = "a, b, c"];
+}
+NFA size: 6 states
+
+AL* output after 7 EQ and 303 MQ:
+digraph finite_state_machine {
+	rankdir=LR;
+	node [shape = circle];
+	s0 [shape = point, style = invis, start="true" ];
+	s1 [shape = point, style = invis, start="true" ];
+	q0 [label = "q0", shape = doublecircle, final="true" ];
+	q1 [label = "q1", shape = doublecircle, final="true" ];
+	q2 [label = "q2"];
+	q3 [label = "q3", shape = doublecircle, final="true" ];
+	q4 [label = "q4", shape = doublecircle, final="true" ];
+	q5 [label = "q5"];
+	m0 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m1 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m2 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m3 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m4 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m5 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m6 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	s0 -> m0
+	s1 -> m1
+	q5 -> m5 [label = "b"];
+	q2 -> m3 [label = "c"];
+	q5 -> m0 [label = "a, b"];
+	q2 -> m2 [label = "a, b, c"];
+	q1 -> m0 [label = "a, b"];
+	q0 -> m2 [label = "b, c"];
+	q4 -> m0 [label = "a, b, c"];
+	q2 -> m1 [label = "a, b, c"];
+	q2 -> m4 [label = "a, b"];
+	q3 -> m3 [label = "a"];
+	q0 -> m4 [label = "a, c"];
+	q0 -> m3 [label = "b"];
+	q0 -> m0 [label = "a, b, c"];
+	q4 -> m3 [label = "c"];
+	q3 -> m0 [label = "a, b, c"];
+	q0 -> m5 [label = "b"];
+	q0 -> m1 [label = "a, b, c"];
+	q4 -> m2 [label = "b, c"];
+	q1 -> m2 [label = "b, c"];
+	q4 -> m1 [label = "b, c"];
+	q4 -> m4 [label = "a, b"];
+	q5 -> m4 [label = "a, c"];
+	q5 -> m2 [label = "b, c"];
+	q1 -> m4 [label = "a, c"];
+	q1 -> m1 [label = "a, c"];
+	q3 -> m4 [label = "b, c"];
+	q2 -> m0 [label = "a, b, c"];
+	q1 -> m5 [label = "b"];
+	q5 -> m1 [label = "c"];
+	q3 -> m2 [label = "a, b, c"];
+	q3 -> m1 [label = "a, b, c"];
+	q3 -> m6 [label = "a"];
+	m0 -> q0;
+	m0 -> q1;
+	m0 -> q2;
+	m0 -> q4;
+	m0 -> q5;
+	m1 -> q0;
+	m1 -> q1;
+	m1 -> q3;
+	m1 -> q5;
+	m2 -> q0;
+	m2 -> q1;
+	m2 -> q3;
+	m2 -> q4;
+	m3 -> q0;
+	m3 -> q1;
+	m3 -> q2;
+	m3 -> q3;
+	m4 -> q2;
+	m4 -> q3;
+	m5 -> q2;
+	m5 -> q3;
+	m5 -> q4;
+	m6 -> q0;
+	m6 -> q2;
+	m6 -> q3;
+	m6 -> q4;
+}
+AFA size: 6 states
+
+AL** output after 8 EQ and 303 MQ:
+digraph finite_state_machine {
+	rankdir=LR;
+	node [shape = circle];
+	s0 [shape = point, style = invis, start="true" ];
+	s1 [shape = point, style = invis, start="true" ];
+	q0 [label = "q0", shape = doublecircle, final="true" ];
+	q1 [label = "q1", shape = doublecircle, final="true" ];
+	q2 [label = "q2"];
+	q3 [label = "q3", shape = doublecircle, final="true" ];
+	q4 [label = "q4", shape = doublecircle, final="true" ];
+	q5 [label = "q5"];
+	m0 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m1 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m2 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m3 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m4 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m5 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	m6 [label = "", shape = square, style = filled, color=grey, fixedsize=true, width=.2];
+	s0 -> m0
+	s1 -> m1
+	q5 -> m5 [label = "b"];
+	q2 -> m3 [label = "c"];
+	q5 -> m0 [label = "a, b"];
+	q2 -> m2 [label = "a, b, c"];
+	q1 -> m0 [label = "a, b"];
+	q0 -> m2 [label = "b, c"];
+	q4 -> m0 [label = "a, b, c"];
+	q2 -> m1 [label = "a, b, c"];
+	q2 -> m4 [label = "a, b"];
+	q3 -> m3 [label = "a"];
+	q0 -> m4 [label = "a, c"];
+	q0 -> m3 [label = "b"];
+	q0 -> m0 [label = "a, b, c"];
+	q4 -> m3 [label = "c"];
+	q3 -> m0 [label = "a, b, c"];
+	q0 -> m5 [label = "b"];
+	q0 -> m1 [label = "a, b, c"];
+	q4 -> m2 [label = "b, c"];
+	q1 -> m2 [label = "b, c"];
+	q4 -> m1 [label = "b, c"];
+	q4 -> m4 [label = "a, b"];
+	q5 -> m4 [label = "a, c"];
+	q5 -> m2 [label = "b, c"];
+	q1 -> m4 [label = "a, c"];
+	q1 -> m1 [label = "a, c"];
+	q3 -> m4 [label = "b, c"];
+	q2 -> m0 [label = "a, b, c"];
+	q1 -> m5 [label = "b"];
+	q5 -> m1 [label = "c"];
+	q3 -> m2 [label = "a, b, c"];
+	q3 -> m1 [label = "a, b, c"];
+	q3 -> m6 [label = "a"];
+	m0 -> q0;
+	m0 -> q1;
+	m0 -> q2;
+	m0 -> q4;
+	m0 -> q5;
+	m1 -> q0;
+	m1 -> q1;
+	m1 -> q3;
+	m1 -> q5;
+	m2 -> q0;
+	m2 -> q1;
+	m2 -> q3;
+	m2 -> q4;
+	m3 -> q0;
+	m3 -> q1;
+	m3 -> q2;
+	m3 -> q3;
+	m4 -> q2;
+	m4 -> q3;
+	m5 -> q2;
+	m5 -> q3;
+	m5 -> q4;
+	m6 -> q0;
+	m6 -> q2;
+	m6 -> q3;
+	m6 -> q4;
+}
+RAFA size: 6 states
+

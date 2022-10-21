@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include "unicode.h"
 #include "table.h"
 
 Table::Table(

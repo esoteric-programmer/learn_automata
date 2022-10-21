@@ -9,6 +9,9 @@ typedef enum {
 	AFA
 } AutomatonType;
 
+/**
+ * finite automaton
+ */
 class Automaton : public Concept {
 private:
 	Alphabet sigma;
@@ -25,12 +28,16 @@ private:
 	Automaton* get_automaton();
 	static std::string graphviz_monomial(Term monomial, std::unordered_map<Term, size_t>* monomials, std::ostringstream* out, std::ostringstream* out_trans);
 	Formula get_next_config(Formula old_config, Symbol symbol);
-	// find a shortest word that is accepted by the automaton. may be the empty word.
-	// if no such word exists, an std::range_error is thrown.
-	// if q0 of the automaton is in CNF and additional_dnf is non-zero, the start state of the automaton is considered to be (q0 /\ additional_dnf).
+	/**
+	 * find a shortest word that is accepted by the automaton. may be the empty word.
+	 * if no such word exists, an std::range_error is thrown.
+	 * if q0 of the automaton is in CNF and additional_dnf is non-zero, the start state of the automaton is considered to be (q0 /\ additional_dnf).
+	 */
 	Word get_any_accepted_word(TermList* additional_dnf);
-	// returns a counter example for L(this) being a subset of L(other).
-	// if no such counter example exists (i.e. L(this) is a subset of L(other)), an std::range_error is thrown.
+	/**
+	 * returns a counter example for L(this) being a subset of L(other).
+	 * if no such counter example exists (i.e. L(this) is a subset of L(other)), an std::range_error is thrown.
+	 */
 	Word get_element_not_in(Automaton* other);
 
 	// helper functions
@@ -64,6 +71,11 @@ private:
 	bool add_lambda_successors_to_formula(Formula& f);
 	void remap_formula(Formula& f, std::vector<size_t> mapping);
 	void remove_lambda_transitions();
+	
+	/**
+	 * create from (limited) regular expression
+	 */
+	Automaton(Alphabet sigma, std::string reg_exp);
 
 public:
 	Automaton(
@@ -71,15 +83,21 @@ public:
 			std::vector<bool> states, // false = not accepting; true = accepting
 			Formula q0,
 			Transitions transitions);
-	Automaton(Alphabet sigma, std::string reg_exp); // create from regular expression // TODO: documentate how these expressions should look like
-	Automaton(std::string alphabet, std::string reg_exp); // create from a string containing all alphabet symbols and a regular expression
+	/**
+	 * create from (limited) regular expression
+	 */
+	Automaton(std::string alphabet, std::string reg_exp);
 	virtual Alphabet get_alphabet();
 	unsigned long int num_states();
-	// test whether a word is accepted by the automaton
+	/**
+	 * test whether a word is accepted by the automaton (membership oracle)
+	 */
 	virtual bool decide(Word word);
-	// test whether the set of accepted words of this automaton equals the set of words in the specified concept
-	// returns a counter example. if no counter example exists (i.e. the sets are equivalent), an std::range_error is thrown.
-	// algorithm 0 is an 2-EXPTIME algorithm, while algorithm 1 is a EXPTIME algorithm. however, in practise algorithm 0 seems to be faster than algorithm 1.
+	/**
+	 * test whether the set of accepted words of this automaton equals the set of words in the specified concept (equivalence oracle)
+	 * returns a counter example. if no counter example exists (i.e. the sets are equivalent), an std::range_error is thrown.
+	 * algorithm 0 is an 2-EXPTIME algorithm, while algorithm 1 is a EXPTIME algorithm. however, in practise algorithm 0 seems to be faster than algorithm 1.
+	 */
 	virtual Word difference(Concept* other, int algorithm = 0);
 	// uses difference method, pass algorithm to use for difference computation
 	State get_nonresidual_state(int algorithm = 0);

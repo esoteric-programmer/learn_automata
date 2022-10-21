@@ -6,6 +6,9 @@
 #define BASIS_ALGORITHM_ANY_MIMIMAL_BASIS  1
 #define BASIS_ALGORITHM_SET_COVER          2
 
+/**
+ * represents the table used by L*, NL*, UL*, AL*, and AL** learning algorithm
+ */
 class Table {
 private:
 	Alphabet alphabet;

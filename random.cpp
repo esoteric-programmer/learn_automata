@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "random.h"
-#include "unicode.h"
+#include "general.h"
 
 Automaton generate_afa(std::string alphabet, unsigned long int num_states) {
 	unsigned long num_universal_states = num_states / 2;

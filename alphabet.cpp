@@ -1,5 +1,5 @@
 #include "alphabet.h"
-#include "unicode.h"
+#include "general.h"
 
 std::string Alphabet::string(Word word) {
 	std::ostringstream ret;

@@ -11,15 +11,25 @@
 class Automaton;
 class EquivalenceOracle;
 
+/**
+ * represents target concept (virtual class)
+ * use constructor of EquivalenceOracle class or constructor of Automaton class to create a Concept object
+ */
 class Concept {
 friend class Automaton;
-friend class EquivalenceOracle;
+friend class Oracle;
 private:
 	virtual Automaton* get_automaton() = 0;
 public:
 	virtual Alphabet get_alphabet() = 0;
+	/**
+	 * membership oracle
+	 */
 	virtual bool decide(Word word) = 0;
-	// algorithm parameter: DFS, BFS, ...
+	/**
+	 * exact equivalence oracle
+	 * algorithm parameter: DFS, BFS, ...
+	 */
 	virtual Word difference(Concept* other, int algorithm) = 0;
 	virtual ~Concept();
 };

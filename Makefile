@@ -2,7 +2,7 @@ appname := automata
 CXX := g++
 CXXFLAGS := -Wall -g --std=c++11
 DEPS := $(shell find . -maxdepth 1 -name "*.h")
-LDLIBS=-lboost_graph -lstdc++
+LDLIBS :=
 
 srcfiles := $(shell find . -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))

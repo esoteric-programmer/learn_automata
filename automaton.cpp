@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include "unicode.h"
+#include "general.h"
 #include "automaton.h"
 
 namespace std {
